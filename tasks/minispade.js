@@ -18,6 +18,10 @@ module.exports = function(grunt) {
     var contents;
 
     //OPTIONS HANDLING
+    
+    if (options.useFullPath === true){
+      fileName = srcFile
+    }
 
     //remove unwanted prefix from minispade registers
     if (options.prefixToRemove !== "") {
