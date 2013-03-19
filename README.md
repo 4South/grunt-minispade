@@ -58,6 +58,8 @@ grunt.initConfig({
 
 `prefixToRemove` If source files come from a directory structure that doesn't match the structure your require statements use to find those modules, you may need to specific a string here that will be removed from all "minispade.register" closures.<br />
 e.g  If your javascript files are first compiled from coffeescript they may be outputted in a directory called "compiledJS".  Your register statements thus need to have "compiledJS/" removed from them in order for your requires to find them.
+
+`useFullPath` Makes the module names the whole path to the file, rather than just the name of the file. Useful for solving naming conflicts.
 ```js
 grunt.initConfig({
   minispade: {
