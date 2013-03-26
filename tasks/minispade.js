@@ -14,7 +14,7 @@ module.exports = function(grunt) {
     
   var formatMinispade = function(srcFile, options) {
     var ext = path.extname(srcFile);
-    var fileName = path; 
+    var fileName = srcFile; 
     var contents;
 
     //OPTIONS HANDLING
