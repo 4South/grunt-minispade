@@ -1,11 +1,12 @@
 # grunt-minispade
+wraps .js files in [minispade](https://github.com/wycats/minispade) closures for use with minispade.js
 
-> wraps .js files in minispade closures for use with minispade.js
+
 
 ## Getting Started
 This plugin requires Grunt `~0.4.0`
 
-If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
+If you haven't used [Grunt](http://gruntjs.com/) before be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
 npm install grunt-minispade --save-dev
@@ -51,10 +52,12 @@ grunt.initConfig({
 ```
 
 #### Custom Options
-renameRequire: if your source files use "require or requireAll" you will need to find and replace them with "minispade.require and minispade.requireAll".  Set this flag to true to enable this feature.<br />
-useStrict: adds javascript's 'use strict' inside each registered minispade closure.<br />
-prefixToRemove: if your source files come from a directory structure that doesn't match the structure your require statements use to find those modules, you may need to specific a string here that will be removed from all "minispade.register" closures.<br />
-E.G.  If your javascript files are first compiled from coffeescript files they may be outputted in a directory called "compiledJS".  Your register statements thus need to have "compiledJS/" removed from them in order for your requires to find them.
+`renameRequire` If your source files use "require" or "requireAll" you should consider enabling this flag. Once enabled grunt-minispade will automaticly find and replace all calls to these functions with the appropriate equivelents ("minispade.require" and "minispade.requireAll").<br />
+
+`useStrict` Adds JavaScript's 'use strict' inside each registered minispade closure.<br />
+
+`prefixToRemove` If source files come from a directory structure that doesn't match the structure your require statements use to find those modules, you may need to specific a string here that will be removed from all "minispade.register" closures.<br />
+e.g  If your javascript files are first compiled from coffeescript they may be outputted in a directory called "compiledJS".  Your register statements thus need to have "compiledJS/" removed from them in order for your requires to find them.
 ```js
 grunt.initConfig({
   minispade: {
