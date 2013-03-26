@@ -1,7 +1,7 @@
 {
   "name": "grunt-minispade",
   "description": "wraps .js files in minispade closures for use with minispade.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/stevekane/grunt-minispade",
   "author": {
     "name": "Steven Kane",

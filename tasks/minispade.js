@@ -14,14 +14,14 @@ module.exports = function(grunt) {
     
   var formatMinispade = function(srcFile, options) {
     var ext = path.extname(srcFile);
-    var fileName = path.basename(srcFile); 
+    var fileName = path; 
     var contents;
 
     //OPTIONS HANDLING
 
     //remove unwanted prefix from minispade registers
     if (options.prefixToRemove !== "") {
-      fileName = fileName.replace(options.prefixToRemove, '');
+      fileName = fileName.split(options.prefixToRemove)[1];
     }
     
     //only .js files may be minispadificated
@@ -31,8 +31,8 @@ module.exports = function(grunt) {
       contents = grunt.file.read(srcFile);
       //minispade actually uses the syntax "minispade.require", renames if needed
       if (options.renameRequire === true) {
-        contents = contents.replace(/^\s*require\s*\(\s*/g, "minispade.require(");
-        contents = contents.replace(/^\s*requireAll\s*\(\s*/g, "minispade.requireAll("); 
+        contents = contents.replace(/\s*require\s*\(\s*/g, "minispade.require(");
+        contents = contents.replace(/\s*requireAll\s*\(\s*/g, "minispade.requireAll("); 
       } 
       //insert 'use strict' inside the minispade register if needed
       if (options.useStrict === true) {
