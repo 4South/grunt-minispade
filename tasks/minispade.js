@@ -18,6 +18,10 @@ module.exports = function(grunt) {
     var contents;
 
     //OPTIONS HANDLING
+    
+    if (options.useFullPath === true){
+      fileName = srcFile
+    }
 
     //remove unwanted prefix from minispade registers
     if (options.prefixToRemove !== "") {
@@ -42,7 +46,7 @@ module.exports = function(grunt) {
       //END OPTIONS HANDLING
 
       contents = "minispade.register('"+fileName+"', function() {\n"+contents+"});\n";
-      grunt.log.writeln(fileName+" minispaded."); 
+      grunt.log.writeln(srcFile+" minispaded."); 
       return contents;
     }
   };
