@@ -1,0 +1,3 @@
+minispade.register('test/fixtures/input.js', function() {"use strict";
+var foo = 'bar'; // last-line comment
+});
