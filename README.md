@@ -57,6 +57,12 @@ grunt.initConfig({
 `useStrict` Adds JavaScript's 'use strict' inside each registered minispade closure.<br />
 
 `prefixToRemove` If source files come from a directory structure that doesn't match the structure your require statements use to find those modules, you may need to specific a string here that will be removed from all "minispade.register" closures.<br />
+
+`moduleIdGenerator` A function which takes one argument that is the path name of the file and returns the name of the minispade module. If this option is set, the `prefixToRemove` option is ignored to avoid collision
+
+`stringModule` If set to true, the output will be a string rather than a closure and a @sourceURL wil be appended for easier debugging
+
+
 e.g  If your javascript files are first compiled from coffeescript they may be outputted in a directory called "compiledJS".  Your register statements thus need to have "compiledJS/" removed from them in order for your requires to find them.
 ```js
 grunt.initConfig({

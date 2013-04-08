@@ -1,0 +1,2 @@
+minispade.register('test/fixtures/input.js', function() {var foo = 'bar'; // last-line comment
+});
