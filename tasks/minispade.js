@@ -19,8 +19,12 @@ module.exports = function(grunt) {
 
     //OPTIONS HANDLING
 
+    // manually generate ID, ignore prefixToRemove if this is set
+    if (typeof options.moduleIdGenerator === "function") {
+      fileName = options.moduleIdGenerator.call(options, fileName);
+    }
     //remove unwanted prefix from minispade registers
-    if (options.prefixToRemove !== "") {
+    else if (options.prefixToRemove !== "") {
       fileName = fileName.split(options.prefixToRemove)[1];
     }
     
@@ -36,12 +40,16 @@ module.exports = function(grunt) {
       } 
       //insert 'use strict' inside the minispade register if needed
       if (options.useStrict === true) {
-        contents = "'use strict';\n" + contents;
+        contents = '"use strict";\n' + contents;
+      }
+      if(options.stringModule){
+        contents = JSON.stringify("(function() {"+contents+"\n})();\n//@ sourceURL="+fileName);
+      } else {
+        contents = "function() {"+contents+"\n}";
       }
 
       //END OPTIONS HANDLING
-
-      contents = "minispade.register('"+fileName+"', function() {\n"+contents+"});\n";
+      contents = "minispade.register('"+fileName+"', "+contents+");\n";
       grunt.log.writeln(fileName+" minispaded."); 
       return contents;
     }
@@ -52,6 +60,8 @@ module.exports = function(grunt) {
       renameRequire: false,
       useStrict: false,
       prefixToRemove: "",
+      moduleIdGenerator: null,
+      stringModule: false,
       separator: grunt.util.linefeed
     });
     

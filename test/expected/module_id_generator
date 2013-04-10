@@ -1,0 +1,2 @@
+minispade.register('octopus', function() {var foo = 'bar'; // last-line comment
+});
