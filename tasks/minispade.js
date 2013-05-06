@@ -35,8 +35,8 @@ module.exports = function(grunt) {
       contents = grunt.file.read(srcFile);
       //minispade actually uses the syntax "minispade.require", renames if needed
       if (options.renameRequire === true) {
-        contents = contents.replace(/\s*require\s*\(\s*/g, "minispade.require(");
-        contents = contents.replace(/\s*requireAll\s*\(\s*/g, "minispade.requireAll("); 
+        contents = contents.replace(/\s*require\s*\(\s*/g, "\nminispade.require(");
+        contents = contents.replace(/\s*requireAll\s*\(\s*/g, "\nminispade.requireAll("); 
       } 
       //insert 'use strict' inside the minispade register if needed
       if (options.useStrict === true) {
