@@ -43,9 +43,9 @@ module.exports = function(grunt) {
         contents = '"use strict";\n' + contents;
       }
       if(options.stringModule){
-        contents = JSON.stringify("(function() {"+contents+"\n})();\n//@ sourceURL="+fileName);
+        contents = JSON.stringify("(function() {\n"+contents+"\n})();\n//@ sourceURL="+fileName);
       } else {
-        contents = "function() {"+contents+"\n}";
+        contents = "function() {\n"+contents+"\n}";
       }
 
       //END OPTIONS HANDLING
