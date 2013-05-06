@@ -1,0 +1,2 @@
+minispade.register('test/fixtures/requires_space.js', function() {minispade.require('octopus');
+});

@@ -30,22 +30,71 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     minispade: {
-      default_options: {
-        options: {
-        },
+      generateOutput: {
         files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123'],
+          'tmp/generate_output': ['test/fixtures/input.js'],
         },
       },
-      custom_options: {
+      useStrict: {
         options: {
-          separator: ': ',
-          punctuation: ' !!!',
+          useStrict:true,
         },
         files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123'],
+          'tmp/use_strict': ['test/fixtures/input.js'],
         },
       },
+      compileString:{
+        options: {
+          stringModule: true,
+        },
+        files: {
+          'tmp/compile_string': ['test/fixtures/input.js'],
+        },
+      },
+      moduleIdGenerator: {
+        options: {
+          moduleIdGenerator: function(filename){
+            return 'octopus';
+          },
+        },
+        files: {
+          'tmp/module_id_generator' : ['test/fixtures/input.js'],
+        }
+      },
+      rewritesRequires: {
+        options: {
+          renameRequire:true
+        },
+        files: {
+          'tmp/rewrite_requires' : ['test/fixtures/requires.js']
+        }
+      },
+      rewritesRequiresSpace: {
+        options: {
+          renameRequire:true
+        },
+        files: {
+          'tmp/rewrite_requires_space' : ['test/fixtures/requires_space.js']
+        }
+      },
+      rewritesRequiresAll: {
+        options: {
+          renameRequire:true
+        },
+        files: {
+          'tmp/rewrite_requires_all' : ['test/fixtures/requires_all.js']
+        }
+      },
+      rewritesRequiresAllSpace: {
+        options: {
+          renameRequire:true
+        },
+        files: {
+          'tmp/rewrite_requires_all_space' : ['test/fixtures/requires_all_space.js']
+        }
+      },
+
+
     },
 
     // Unit tests.
