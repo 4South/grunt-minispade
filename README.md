@@ -58,6 +58,8 @@ grunt.initConfig({
 
 `prefixToRemove` If source files come from a directory structure that doesn't match the structure your require statements use to find those modules, you may need to specific a string here that will be removed from all "minispade.register" closures.<br />
 
+`removeFileExtension` Boolean value that decides if the file extension should be included in the output name. Defaults to true.
+
 `moduleIdGenerator` A function which takes one argument that is the path name of the file and returns the name of the minispade module. If this option is set, the `prefixToRemove` option is ignored to avoid collision
 
 `stringModule` If set to true, the output will be a string rather than a closure and a @sourceURL wil be appended for easier debugging
