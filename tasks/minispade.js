@@ -50,9 +50,7 @@ module.exports = function(grunt) {
 
       //END OPTIONS HANDLING
       contents = "minispade.register('"+fileName+"', "+contents+");\n";
-      if (options.verbose) {
-        grunt.log.writeln(fileName+" minispaded.");
-      }
+      grunt.verbose.writeln(fileName+" minispaded.");
       return contents;
     }
   };
@@ -64,8 +62,7 @@ module.exports = function(grunt) {
       prefixToRemove: "",
       moduleIdGenerator: null,
       stringModule: false,
-      separator: grunt.util.linefeed,
-      verbose: false
+      separator: grunt.util.linefeed
     });
     
     grunt.verbose.writeflags(options, 'Options');
