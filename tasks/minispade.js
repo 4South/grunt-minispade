@@ -27,7 +27,12 @@ module.exports = function(grunt) {
     else if (options.prefixToRemove !== "") {
       fileName = fileName.split(options.prefixToRemove)[1];
     }
-    
+	
+	//removes the file extension of the output name
+    if (options.removeFileExtension) {
+        fileName = fileName.split(ext)[0];
+    }
+	
     //only .js files may be minispadificated
     if (ext !== '.js') {
       grunt.log.error('minispade may only be run on .js files');
