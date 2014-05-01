@@ -37,12 +37,12 @@ grunt.initConfig({
 })
 ```
 #### Default Options
-Choose a separator character to place between concatenated files.  This feature is left in as a courtesy to other grunt plugins' formats but it's not particularly useful here and should be left alone in most cases. 
+Choose a separator character to place between concatenated files.  This feature is left in as a courtesy to other grunt plugins' formats but it's not particularly useful here and should be left alone in most cases.
 ```js
 grunt.initConfig({
   minispade: {
     options: {
-      separator: "", 
+      separator: "",
     },
     files: {
       //file stuff
@@ -52,7 +52,7 @@ grunt.initConfig({
 ```
 
 #### Custom Options
-`renameRequire` If your source files use "require" or "requireAll" you should consider enabling this flag. Once enabled grunt-minispade will automaticly find and replace all calls to these functions with the appropriate equivelents ("minispade.require" and "minispade.requireAll").<br />
+`renameRequire` If your source files use "require" or "requireAll" you should consider enabling this flag. Once enabled grunt-minispade will automaticly find and replace all calls to these functions with the appropriate equivalents ("minispade.require" and "minispade.requireAll").<br />
 
 `useStrict` Adds JavaScript's 'use strict' inside each registered minispade closure.<br />
 
@@ -62,7 +62,7 @@ grunt.initConfig({
 
 `moduleIdGenerator` A function which takes one argument that is the path name of the file and returns the name of the minispade module. If this option is set, the `prefixToRemove` option is ignored to avoid collision
 
-`stringModule` If set to true, the output will be a string rather than a closure and a @sourceURL wil be appended for easier debugging
+`stringModule` If set to true, the output will be a string rather than a closure and a #sourceURL will be appended for easier debugging
 
 
 e.g  If your javascript files are first compiled from coffeescript they may be outputted in a directory called "compiledJS".  Your register statements thus need to have "compiledJS/" removed from them in order for your requires to find them.
@@ -72,7 +72,7 @@ grunt.initConfig({
     options: {
       renameRequire: true,
       useStrict: true,
-      prefixToRemove: "",      
+      prefixToRemove: "",
     },
     files: {
       //file stuff
@@ -82,7 +82,7 @@ grunt.initConfig({
 ```
 
 ## Contributing
-To contribute, contact @stv_kn or email kanesteven@gmail.com or skane@4-south.com.  Alternatively, create a fork and pull request on github. 
+To contribute, contact @stv_kn or email kanesteven@gmail.com or skane@4-south.com.  Alternatively, create a fork and pull request on github.
 
 ## Release History
 0.1.0 March 12, 2013 initial release
